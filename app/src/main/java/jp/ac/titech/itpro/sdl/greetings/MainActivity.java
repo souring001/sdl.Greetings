@@ -1,5 +1,7 @@
 package jp.ac.titech.itpro.sdl.greetings;
 
+import android.content.Context;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void greet() {
         if (name != null && !name.isEmpty()) {
+            Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(30 * 1000);
             outputView.setText(getString(R.string.output_view_format, name));
         }
     }
